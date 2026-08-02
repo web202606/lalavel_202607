@@ -2,6 +2,13 @@
 
 use App\Http\Controllers\DisplayController;
 use App\Http\Controllers\HtmlController;
+use App\Http\Controllers\CssController;
+use App\Http\Controllers\JavascriptController;
+use App\Http\Controllers\PhpController;
+use App\Http\Controllers\DatabaseController;
+use App\Http\Controllers\LaraveltblController;
+use App\Http\Controllers\SkillController;
+
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -22,7 +29,7 @@ Route::get('/', function () {
 });
 
     //トップ画面表示
-    Route::get('/', [DisplayController::class, 'index']);
+    //Route::get('/', [DisplayController::class, 'index']);
     //HtmlテーブルのCRUD
     Route::resource('htmls', HtmlController::class);
     //CssテーブルのCRUD
