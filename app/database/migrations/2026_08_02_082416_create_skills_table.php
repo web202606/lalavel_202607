@@ -17,15 +17,14 @@ class CreateSkillsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->date('date');
-            $table->tinyInteger('html_point');
-            $table->tinyInteger('css_point');
-            $table->tinyInteger('javascript_point');
-            $table->tinyInteger('jquery_point');
-            $table->tinyInteger('php_point');
-            $table->tinyInteger('db_point');
-            $table->tinyInteger('laravel_point');
-            $table->tinyInteger('del_flg')->default(0);
-            $table->string('comment', '100')->nullable();          
+            $table->float('html_point');
+            $table->float('css_point');
+            $table->float('javascript_point');
+            $table->float('jquery_point');
+            $table->float('php_point');
+            $table->float('db_point');
+            $table->float('laravel_point');
+            $table->tinyInteger('del_flg')->default(0);     
             $table->timestamps();
         });
     }
