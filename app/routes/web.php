@@ -29,7 +29,7 @@ Route::get('/', function () {
 });
 
     //トップ画面表示
-    //Route::get('/', [DisplayController::class, 'index']);
+    Route::get('/', [DisplayController::class, 'top']);
     //HtmlテーブルのCRUD
     Route::resource('htmls', HtmlController::class);
     //CssテーブルのCRUD
