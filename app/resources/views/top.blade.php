@@ -44,14 +44,16 @@
     <header class="bg-dark py-5">
             <div class="container px-5">
                 <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
+                    <div class="col-lg-8">
                         <div class="text-center my-5">
                             <h1 class="display-5 fw-bolder text-white mb-2">ようこそwebスキル確認アプリへ</h1>
-                            <p class="lead text-white-50 mb-4">ここではあなたの現在のwebスキル状況を確認できます詳細は各リンクをクリックしてください。</p>
-                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
-                            </div>
+                            <p class="lead text-white-50 mb-4">
+                                ここではあなたの現在のWEBスキルの状況の表示、登録が行えます。<br>
+                                登録済みのスキル状況の更新、削除は表示画面から行えます。<br>
+                                スキル項目については全8項目となっています。(HTML,CSS,JavaScript,Jquery,PHP,DB,Lalavel,総合)<br>
+                                下記のリンクから各ページにアクセスして確認、登録を実施してください。
+
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -67,74 +69,50 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
                         <h2 class="h4 fw-bolder">HTMLスキル</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <p><a class="text-decoration-none" href="#!">・HTMLスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        <p><a class="text-decoration-none" href="#!">・HTMLスキル新規登録<i class="bi bi-arrow-right"></i></a></p>                       
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
                         <h2 class="h4 fw-bolder">CSSスキル</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <p><a class="text-decoration-none" href="#!">・CSSスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        <p><a class="text-decoration-none" href="#!">・CSSスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
                     </div>
                     <div class="col-lg-4">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                        <h2 class="h4 fw-bolder">Javascriptsスキル</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <h2 class="h4 fw-bolder">Javascriptスキル</h2>
+                        <p><a class="text-decoration-none" href="#!">・Javascriptスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        <p><a class="text-decoration-none" href="#!">・Javascriptスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
                     </div>
                    <div class="col-lg-4">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">JQueryスキル</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <p><a class="text-decoration-none" href="#!">・JQueryスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        <p><a class="text-decoration-none" href="#!">・JQueryスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
                     </div>
                    <div class="col-lg-4">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">PHPスキル</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <p><a class="text-decoration-none" href="#!">・PHPスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        <p><a class="text-decoration-none" href="#!">・PHPスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
                     </div>
                    <div class="col-lg-4">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">DBスキル</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <p><a class="text-decoration-none" href="#!">・DBスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        <p><a class="text-decoration-none" href="#!">・DBスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
                     </div>
                    <div class="col-lg-4">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">Laravelスキル</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <p><a class="text-decoration-none" href="#!">・Laravelスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        <p><a class="text-decoration-none" href="#!">・Laravelスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
                     </div>
                    <div class="col-lg-4">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">総合スキル</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <p><a class="text-decoration-none" href="#!">・総合スキルシート作成<i class="bi bi-arrow-right"></i></a></p>
+                        <p><a class="text-decoration-none" href="#!">・総合スキルシート作成履歴表示<i class="bi bi-arrow-right"></i></a></p> 
                     </div>
                 </div>
             </div>

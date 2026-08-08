@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CreateData;
+use App\Http\Requests\EditData;
 
 class HtmlController extends Controller
 {
@@ -21,8 +24,25 @@ class HtmlController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(CreateData $request)
     {
+       $html = new Html;
+       /**user_idは仮で入れている。　**/
+       $html->user_id       = 1;
+       $html->html_structure = $request->html_structure;
+       $html->html_property = $request->html_property;
+       $html->html_posision = $request->html_posision;
+       $html->html_link     = $request->html_link;
+       $html->html_form     = $request->html_form;
+       $html->html_table    = $request->html_table;
+       $html->html_path     = $request->html_path;
+       $html->html_element  = $request->html_element;
+       $html->html_tool     = $request->html_tool;
+       $html->html_web      = $request->html_web;
+       $html->comment       = $request->comment;
+       $html->save();
+       //Auth::user()->html()->save($html);
+       return redirect('/');
         //
     }
 
