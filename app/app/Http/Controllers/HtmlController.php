@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Html;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\CreateData;
-use App\Http\Requests\EditData;
+use Carbon\Carbon;
 
 class HtmlController extends Controller
 {
@@ -17,6 +17,7 @@ class HtmlController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -24,11 +25,25 @@ class HtmlController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(CreateData $request)
+    public function create(Request $request)
     {
+        return view('html/html_create');
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
        $html = new Html;
        /**user_idは仮で入れている。　**/
        $html->user_id       = 1;
+       $html->date = Carbon::today()->format('Y-m-d');
        $html->html_structure = $request->html_structure;
        $html->html_property = $request->html_property;
        $html->html_posision = $request->html_posision;
@@ -43,18 +58,6 @@ class HtmlController extends Controller
        $html->save();
        //Auth::user()->html()->save($html);
        return redirect('/');
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -66,6 +69,7 @@ class HtmlController extends Controller
     public function show($id)
     {
         //
+        return view('html/html_create');
     }
 
     /**

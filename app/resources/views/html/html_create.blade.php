@@ -60,7 +60,7 @@
         <!-- Features section-->
     <main>
         <div class="card-body">
-            <form action="{{ route('create_spends') }}" method="post">
+            <form action="{{ route('htmls.store') }}" method="post">
                             @csrf
                             <label for='html_structure' class='mt-2'>Webサイトの仕組みを理解しているか</label>
                             <select name='html_structure' class='form-control'>

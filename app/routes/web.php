@@ -30,20 +30,30 @@ Route::get('/', function () {
 
     //トップ画面表示
     Route::get('/', [DisplayController::class, 'top']);
+
     //HtmlテーブルのCRUD
     Route::resource('htmls', HtmlController::class);
+    /*Route::resource('/html', 'HtmlController');*/
+    Route::resource('htmls', 'HtmlController');
     //CssテーブルのCRUD
-    Route::resource('csss', CssController::class);
+    //Route::resource('csss', CssController::class);
+    Route::resource('csss', 'CssController');
     //JavascriptテーブルのCRUD
-    Route::resource('javascripts', JavascriptController::class);
+    //Route::resource('javascripts', JavascriptController::class);
+    Route::resource('javascripts', 'JavascriptController');
     //JqueryテーブルのCRUD
-    Route::resource('jquerys', JqueryController::class);
+    //Route::resource('jquerys', JqueryController::class);
+    Route::resource('jquerys', 'JqueryController');
     //PhpテーブルのCRUD
-    Route::resource('phps', PhpController::class);
+    //Route::resource('phps', PhpController::class);
+    Route::resource('phps', 'PhpController');
     //DatabaseテーブルのCRUD
-    Route::resource('databases', DatabaseController::class);
+    //Route::resource('databases', DatabaseController::class);
+    Route::resource('databases', 'DatabaseController');
     //LaraveltblテーブルのCRUD
-    Route::resource('laraveltbls', LaraveltblController::class);
+    //Route::resource('laraveltbls', LaraveltblController::class);
+    Route::resource('laraveltbls', 'LaraveltblController');
 
     //SkillテーブルのCRUD
-    Route::resource('skills', SkillController::class);
+    //Route::resource('skills', SkillController::class);
+    Route::resource('skills', 'SkillController');

@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">HTML</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('htmls.create') }}">HTML</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">CSS</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Javascripts</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">JQuery</a></li>
@@ -70,7 +70,7 @@
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
                         <h2 class="h4 fw-bolder">HTMLスキル</h2>
                         <p><a class="text-decoration-none" href="#!">・HTMLスキル表示<i class="bi bi-arrow-right"></i></a></p>
-                        <p><a class="text-decoration-none" href="#!">・HTMLスキル新規登録<i class="bi bi-arrow-right"></i></a></p>                       
+                        <p><a class="text-decoration-none" href="{{ route('htmls.create') }}">・HTMLスキル新規登録<i class="bi bi-arrow-right"></i></a></p>                       
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
