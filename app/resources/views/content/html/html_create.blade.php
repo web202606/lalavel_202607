@@ -59,7 +59,7 @@
         <!-- Header-->
         <!-- Features section-->
     <main>
-        <div class="card-body">
+        <div class="card-body d-flex justify-content-center">
             <form action="{{ route('htmls.store') }}" method="post">
                             @csrf
                             <label for='html_structure' class='mt-2'>Webサイトの仕組みを理解しているか</label>

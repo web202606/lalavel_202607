@@ -26,7 +26,7 @@ class CssController extends Controller
      */
     public function create()
     {
-        return view('css/css_create');
+        return view('content/css/css_create');
         //
 
     }

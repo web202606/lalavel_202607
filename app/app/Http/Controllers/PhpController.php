@@ -26,7 +26,7 @@ class PhpController extends Controller
      */
     public function create()
     {
-        return view('php/php_create');
+        return view('content/php/php_create');
         //
     }
 

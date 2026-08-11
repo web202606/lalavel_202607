@@ -26,7 +26,7 @@ class LaraveltblController extends Controller
      */
     public function create()
     {
-        return view('laravel/laravel_create');
+        return view('content/laravel/laravel_create');
         //
     }
 

@@ -23,6 +23,7 @@ class SkillController extends Controller
      */
     public function create()
     {
+        return view('content/skill/skill_create');
         //
     }
 

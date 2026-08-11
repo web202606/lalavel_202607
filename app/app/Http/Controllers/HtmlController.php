@@ -27,7 +27,7 @@ class HtmlController extends Controller
      */
     public function create(Request $request)
     {
-        return view('html/html_create');
+        return view('content/html/html_create');
         //
     }
 

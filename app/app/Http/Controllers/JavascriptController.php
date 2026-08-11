@@ -26,7 +26,7 @@ class JavascriptController extends Controller
      */
     public function create()
     {
-        return view('javascript/javascript_create');
+        return view('content/javascript/javascript_create');
         //
     }
 

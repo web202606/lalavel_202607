@@ -26,7 +26,7 @@ class JqueryController extends Controller
      */
     public function create()
     {
-        return view('jquery/jquery_create');
+        return view('content/jquery/jquery_create');
         //
     }
 

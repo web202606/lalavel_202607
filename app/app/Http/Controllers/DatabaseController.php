@@ -26,7 +26,7 @@ class DatabaseController extends Controller
      */
     public function create()
     {
-        return view('db/db_create');
+        return view('content/db/db_create');
         //
     }
 
