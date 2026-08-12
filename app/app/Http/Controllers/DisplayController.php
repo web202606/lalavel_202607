@@ -9,6 +9,8 @@ class DisplayController extends Controller
     //
     public function top(){
         return view('top');
+        //return view('parts/header');
+        
     }
     
 }
