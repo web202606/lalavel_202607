@@ -1,4 +1,7 @@
 @extends('base')
+@section('head')
+<title>{{ config('app.name', 'TOP画面') }}</title>
+@endsection
 @section('main')
     <main>
         <div class="bg-dark py-5">
@@ -23,7 +26,7 @@
                     <div class="col-lg-3">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
                         <h2 class="h4 fw-bolder">HTMLスキル</h2>
-                        <p class="mb-1"><a class="text-decoration-none" href="#!">・HTMLスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        <p class="mb-1"><a class="text-decoration-none" href="{{ route('html_search') }}">・HTMLスキル表示<i class="bi bi-arrow-right"></i></a></p>
                         <p><a class="text-decoration-none" href="{{ route('htmls.create') }}">・HTMLスキル新規登録<i class="bi bi-arrow-right"></i></a></p>                       
                     </div>
                     <div class="col-lg-3">

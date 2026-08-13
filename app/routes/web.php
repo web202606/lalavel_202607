@@ -57,3 +57,6 @@ Route::get('/', function () {
     //SkillテーブルのCRUD
     //Route::resource('skills', SkillController::class);
     Route::resource('skills', 'SkillController');
+
+    //Htmlテーブルのsearch
+    Route::get('html_search', [DisplayController::class, 'htmlsearch'])->name('html_search');
