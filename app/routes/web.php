@@ -30,7 +30,14 @@ Route::get('/', function () {
 
     //トップ画面表示
     Route::get('/', [DisplayController::class, 'top']);
+    
+    //Html登録スキルの検索画面
+    Route::get('html_search', [DisplayController::class, 'htmlsearch'])->name('html_search');
+    //Html登録スキルの一覧表示
+    Route::get('html_list', [DisplayController::class, 'htmllist'])->name('html_list');
 
+    //Html登録スキルの詳細画面
+    Route::get('html_skill{html}', [DisplayController::class, 'htmlskill'])->name('html_skill');
     //HtmlテーブルのCRUD
     Route::resource('htmls', HtmlController::class);
     /*Route::resource('/html', 'HtmlController');*/
@@ -58,5 +65,5 @@ Route::get('/', function () {
     //Route::resource('skills', SkillController::class);
     Route::resource('skills', 'SkillController');
 
-    //Htmlテーブルのsearch
-    Route::get('html_search', [DisplayController::class, 'htmlsearch'])->name('html_search');
+
+

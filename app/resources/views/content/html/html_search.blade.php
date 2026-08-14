@@ -24,7 +24,7 @@
                     </div>
                     <div class="card-body">
                         <div class="card-body">
-                            <form class="date_option" action="{{ route('htmls.index') }}" method="GET">
+                            <form class="date_option" action="{{ route('html_list') }}" method="GET">
                                 @csrf
                                 <!--検索した内容をページ更新後にvalueで表示-->
                                 <input type="date" name="from" placeholder="from_date" class="cursor date_border" @if(isset($from)) value="{{$from}}" @endif>
