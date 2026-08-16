@@ -1,5 +1,8 @@
 
 @extends('base')
+@section('head')
+<title>{{ config('app.name', 'HTMLスキル登録画面') }}</title>
+@endsection
 @section('main')
     <main>
         <div class="bg-dark py-5">

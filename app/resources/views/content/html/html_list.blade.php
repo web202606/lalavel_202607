@@ -17,36 +17,41 @@
             </div>
         </div>
         <div class="row justify-content-around mt-5">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header bg-primary">
-                        <div class='text-center'>登録履歴リスト</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-body">
-                            <table class='table'>
-                                <thead class='bg-success'>
-                                    <tr>
-                                        <th scope='col'>ID</th>
-                                        <th scope='col'>日付</th>
-                                        <th scope='col'>スキル詳細</th>                                       
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- ここに収入を表示する -->
-                                        @foreach($htmls as $html)
-                                        <tr>
-                                            <th scope='col'>{{$html['id']}}</th>
-                                            <th scope='col'>{{$html['date']}}</th>
-                                            <th scope='col'>
-                                                <a href="{{ route('html_skill', ['html' => $html['id']]) }}">スキル</a>
-                                            </th>                                                  
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+            <div class="col-md-6">                    
+                <div class="card-body">
+                    <table class='table'>
+                        <thead class='bg-success'>
+                            <tr>
+                                <th scope='col text-nowrap'>ID</th>
+                                <th scope='col text-nowrap'>日付</th>
+                                <th scope='col text-nowrap'>スキル詳細</th>
+                                <th scope='col text-nowrap'>更新</th>   
+                                <th scope='col text-nowrap'>物理削除</th>   
+                                <th scope='col text-nowrap'>論理削除</th>                        
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ここに収入を表示する -->
+                                @foreach($htmls as $html)
+                                <tr>
+                                    <th scope='col'>{{$html['id']}}</th>
+                                    <th scope='col'>{{$html['date']}}</th>
+                                    <th scope='col'>
+                                        <a href="{{ route('html_skill', ['html' => $html['id']]) }}">スキル</a>
+                                    </th>  
+                                    <th scope='col'>
+                                        <a href="{{ route('html_edit', ['html' => $html['id']]) }}">更新</a>
+                                    </th>
+                                    <th scope='col'>
+                                        <a href="{{ route('html_del', ['html' => $html['id']]) }}">物理削除</a>
+                                    </th> 
+                                    <th scope='col'>
+                                        <a href="{{ route('html_delflg', ['html' => $html['id']]) }}">論理削除</a>
+                                    </th>                                                  
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
