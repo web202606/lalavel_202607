@@ -53,7 +53,7 @@ Route::get('/', function () {
     Route::post('html_up{html}', [HtmldisplayController::class, 'htmlup'])->name('html_up');
     //Html登録スキルの削除
     Route::get('html_del{html}', [HtmldisplayController::class, 'htmldel'])->name('html_del');
-    Route::get('html_delflg{html}', [HtmldisplayController::class, 'htmldelflg'])->name('html_delflg');    
+    Route::get('html_delflg/{html}', [HtmldisplayController::class, 'htmldelflg'])->name('html_delflg');    
 
     //HtmlテーブルのCRUD(新規登録)
     Route::resource('htmls', HtmlController::class);

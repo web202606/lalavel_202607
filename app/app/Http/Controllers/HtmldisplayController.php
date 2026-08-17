@@ -142,8 +142,7 @@ class HtmldisplayController extends Controller
     }    
     //更新
     public function htmlup(Html $html, Request $request){
-       //$instance = new Income;
-       //$record = $instance->find($id);
+       
        $html->date = Carbon::today()->format('Y-m-d');
        $html->html_structure = $request->html_structure;
        $html->html_property = $request->html_property;
@@ -157,7 +156,8 @@ class HtmldisplayController extends Controller
        $html->html_web = $request->html_web;
        //$record->save();
        //Auth::user()->html()->save($html);
-       html()->save($html);
+       $html->save();
+       //html()->save($html);
        return redirect('/');
     } 
     //物理削除
@@ -170,14 +170,10 @@ class HtmldisplayController extends Controller
     
     //論理削除 
     public function htmldelflg(Html $html){
-       //$instance = new Income;
-       //$record = $instance->find($id);
-       //$record->del_flg =true;
-       $html->del_flg = 1;
-       //$record->save();   
+       $html->del_flg = true;
        //Auth::user()->html()->save($html);
-       //$html->save();
-       html()->save($html);
+       $html->save();
+       //html()->save($html);
        return redirect('/');
     }    
 
