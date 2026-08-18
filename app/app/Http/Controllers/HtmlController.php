@@ -57,7 +57,7 @@ class HtmlController extends Controller
        $html->comment       = $request->comment;
        $html->save();
        //Auth::user()->html()->save($html);
-       return redirect('/');
+       return redirect('parts/create_complete');
     }
 
     /**
