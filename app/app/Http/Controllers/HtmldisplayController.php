@@ -74,8 +74,7 @@ class HtmldisplayController extends Controller
         return view('content/html/html_list', compact('htmls','until','from'));
     }    
     public function htmlskill(Html $html){
-        //$html = new Html;
-        //$result = $html->find($id);
+       
         $pointmax =30;
         $pointmin =10;
         $pointhigh = 3;
@@ -142,9 +141,14 @@ class HtmldisplayController extends Controller
     }    
     //更新
     public function htmlup(Html $html, Request $request){
-       
+
+
+       //dd($request->all());
+       //dd($html->all());
+       dd($request->all());
        $html->date = Carbon::today()->format('Y-m-d');
-       $html->html_structure = $request->html_structure;
+       //dd($request->all());
+       $html->html_structure = $request->html_structure;  
        $html->html_property = $request->html_property;
        $html->html_posision = $request->html_posision;
        $html->html_link = $request->html_link;
@@ -154,6 +158,7 @@ class HtmldisplayController extends Controller
        $html->html_element = $request->html_element;
        $html->html_tool = $request->html_tool;
        $html->html_web = $request->html_web;
+       
        //$record->save();
        //Auth::user()->html()->save($html);
        $html->save();
