@@ -39,21 +39,21 @@ Route::get('/', function () {
 });
 
     //トップ画面表示
-    Route::get('/', [DisplayController::class, 'top']);
+    Route::get('/', [DisplayController::class, 'top'])->name('top');
     
     //Html登録スキルの検索画面
-    Route::get('html_search', [HtmldisplayController::class, 'htmlsearch'])->name('html_search');
+    Route::get('/html_search', [HtmldisplayController::class, 'htmlsearch'])->name('html_search');
     //Html登録スキルの一覧表示
-    Route::get('html_list', [HtmldisplayController::class, 'htmllist'])->name('html_list');
+    Route::get('/html_list', [HtmldisplayController::class, 'htmllist'])->name('html_list');
     //Html登録スキルの詳細画面
-    Route::get('html_skill{html}', [HtmldisplayController::class, 'htmlskill'])->name('html_skill');
+    Route::get('/html_skill/{html}', [HtmldisplayController::class, 'htmlskill'])->name('html_skill');
     //Html登録スキルの編集画面
-    Route::get('html_edit{html}', [HtmldisplayController::class, 'htmledit'])->name('html_edit');
+    Route::get('/html_edit/{html}', [HtmldisplayController::class, 'htmledit'])->name('html_edit');
     //Html登録スキルの更新
-    Route::post('html_up{html}', [HtmldisplayController::class, 'htmlup'])->name('html_up');
+    Route::post('/html_up/{html}', [HtmldisplayController::class, 'htmlup'])->name('html_up');
     //Html登録スキルの削除
-    Route::get('html_del{html}', [HtmldisplayController::class, 'htmldel'])->name('html_del');
-    Route::get('html_delflg/{html}', [HtmldisplayController::class, 'htmldelflg'])->name('html_delflg');    
+    Route::get('/html_del/{html}', [HtmldisplayController::class, 'htmldel'])->name('html_del');
+    Route::get('/html_delflg/{html}', [HtmldisplayController::class, 'htmldelflg'])->name('html_delflg');    
 
     //HtmlテーブルのCRUD(新規登録)
     Route::resource('htmls', HtmlController::class);

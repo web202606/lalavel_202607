@@ -16,7 +16,15 @@
                     </div>
                 </div>
             </div>
-        </div>       
+        </div>
+              
+        <div class="row justify-content-around mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <button a href="{{ route('top') }}" class="btn btn-primary btn-lg" role="button">TOPへ戻る</button>
+                </div>
+            </div>
+        </div> 
     </main>
 </body>
 </html>
