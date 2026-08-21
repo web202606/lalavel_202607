@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Html;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateData;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -34,10 +35,10 @@ class HtmlController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CreateData  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateData $request)
     {
         //
        $html = new Html;

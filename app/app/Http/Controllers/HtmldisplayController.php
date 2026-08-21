@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateData;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Html;
@@ -142,7 +143,7 @@ class HtmldisplayController extends Controller
         ]);
     }    
     //更新
-    public function htmlup(Html $html, Request $request){
+    public function htmlup(Html $html, CreateData $request){
 
 
        $html->date = Carbon::today()->format('Y-m-d');

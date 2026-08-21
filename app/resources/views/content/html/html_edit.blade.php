@@ -17,6 +17,17 @@
                     </div>
             </div>
         </div>
+        <div class="panel-body d-flex justify-content-center mt-3">
+            @if($errors->any())
+            <div class='alert alert-danger d-flex justify-content-center w-50'>
+                <ul>
+                    @foreach($errors->all() as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+        </div>
         <div class="card-body d-flex justify-content-center">
             <form action="{{ route('html_up', ['html' => $result['id'] ]) }}" method="post">
                 @csrf
