@@ -36,4 +36,30 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+        //テーブルと結合
+        public function html(){
+        return $this->hasMany('App\Html');
+    }
+        public function css(){
+        return $this->hasMany('App\Css');
+    }
+        public function javascript(){
+        return $this->hasMany('App\Javascript');
+    }
+        public function jquery(){
+        return $this->hasMany('App\Jquery');
+    }
+        public function php(){
+        return $this->hasMany('App\Php');
+    }
+        public function database(){
+        return $this->hasMany('App\Database');
+    }
+        public function laraveltbl(){
+        return $this->hasMany('App\Laraveltbl');
+    }
+        public function skill(){
+        return $this->hasMany('App\Skill');
+    }
+
 }

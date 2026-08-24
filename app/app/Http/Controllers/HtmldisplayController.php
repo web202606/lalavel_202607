@@ -27,15 +27,11 @@ class HtmldisplayController extends Controller
     //html登録スキル検索結果画面表示
     public function htmllist(Request $request){
         // 空を用意することで(検索結果0件で)値がなくてもエラーにならない
-        $html = new Html;
         $htmls = [];
-        // htmlテーブルに値がある場合
-        /*if(Auth::user()->html()->exists()) {
-            $htmls = Auth::user()
-        }*/
-        
-        if($html->exists()) {
-            $htmls = $html->where('del_flg', 0)->get()->toArray();
+        //テーブルに値がある場合
+        //dd($request);
+        if(Auth::user()->html()->exists()) {
+            $htmls = Auth::user()->html()->where('del_flg', 0)->get()->toArray();
         }
 
         // ---------- 日付検索による支出一覧表示 ----------
@@ -50,28 +46,24 @@ class HtmldisplayController extends Controller
             $from = $request['from'];
             $until = $request['until'];
             
-            //$htmls = Auth::user()
-            $htmls = $html->wherebetween('date', [$from, $until])->where('del_flg', 0)->get()->toArray();
+            $htmls = Auth::user()->html()->wherebetween('date', [$from, $until])->where('del_flg', 0)->get()->toArray();
             
             // from 選択された場合
-        } elseif ($request['from']) {
+        } elseif (!empty($request['from'])) {
             $from = $request['from'];
-            //$htmls = Auth::user()
-            $htmls = $html->where('date', '>=', $from )->where('del_flg', 0)->get()->toArray();
-           
             
+            $htmls = Auth::user()->html()->where('date', '>=', $from)->where('del_flg', 0)->get()->toArray();
+                       
             // until 選択された場合
-        } elseif ($request['until']) {
+        } elseif (!empty($request['until'])) {
             $until = $request['until'];
-            //$htmls = Auth::user()->
-            $htmls = $html->where('date', '<=', $until )->where('del_flg', 0)->get()->toArray();
+            
+            $htmls = Auth::user()->html()->where('date', '<=', $until)->where('del_flg', 0)->get()->toArray();
            
-           
-
             // from until 両方選択されなかった場合
         } else {
-            //$htmls = Auth::user()->html()->where('del_flg', 0)->get()->toArray();
-            $htmls = $html->where('del_flg', 0)->get()->toArray();
+            
+            $htmls = Auth::user()->html()->where('del_flg', 0)->get()->toArray();
         }
         return view('content/html/html_list', compact('htmls','until','from'));
     }    
@@ -135,8 +127,6 @@ class HtmldisplayController extends Controller
     }
     //編集
    public function htmledit(Html $html){
-        //$incomding = new Income;
-        //$result = $incomding->find($id);
         return view('content/html/html_edit', [
             //'id' => $id,
             'result' => $html        
@@ -147,7 +137,6 @@ class HtmldisplayController extends Controller
 
 
        $html->date = Carbon::today()->format('Y-m-d');
-       //dd($request->all());
        $html->html_structure = $request->html_structure;  
        $html->html_property = $request->html_property;
        $html->html_posision = $request->html_posision;
@@ -158,28 +147,20 @@ class HtmldisplayController extends Controller
        $html->html_element = $request->html_element;
        $html->html_tool = $request->html_tool;
        $html->html_web = $request->html_web;
-       
-       //$record->save();
-       //Auth::user()->html()->save($html);
-       $html->save();
-       //html()->save($html);
-       return redirect('/');
+       Auth::user()->html()->save($html);
+       return view('parts/update_complete');
     } 
     //物理削除
     public function htmldel(Html $html){
-       //$instance = new Income;
-       //$instance->where('id', $id)->delete();
        $html->delete();
-       return redirect('/');
+       return view('parts/delete_complete');
     }   
     
     //論理削除 
     public function htmldelflg(Html $html){
        $html->del_flg = true;
-       //Auth::user()->html()->save($html);
-       $html->save();
-       //html()->save($html);
-       return redirect('/');
+       Auth::user()->html()->save($html);
+       return view('parts/delete_complete');
     }    
 
 }

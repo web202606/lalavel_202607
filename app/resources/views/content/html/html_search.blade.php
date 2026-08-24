@@ -38,7 +38,8 @@
                 </div>
             </div>
         </div>
+        <div class="fixed-bottom">
+            <a  class="col-md-1 w-100" href="{{ url()->previous() }}"><button  type="button" class="btn btn-primary btn-lg" role="button">戻る</button></a>
+        </div>
     </main>
-</body>
-</html>
 @endsection

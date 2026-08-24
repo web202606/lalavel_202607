@@ -38,6 +38,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
+Route::group(['middleware' => 'auth'], function(){
+
+
     //トップ画面表示
     Route::get('/', [DisplayController::class, 'top'])->name('top');
     
@@ -81,6 +86,8 @@ Route::get('/', function () {
     //SkillテーブルのCRUD(新規登録)
     //Route::resource('skills', SkillController::class);
     Route::resource('skills', 'SkillController');
+
+});
 
 
 

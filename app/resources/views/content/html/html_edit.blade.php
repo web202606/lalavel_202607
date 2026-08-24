@@ -12,6 +12,7 @@
                             <div class="text-center my-5">
                                 <h1 class="display-5 fw-bolder text-white mb-3  text-nowrap">HTMLスキル更新画面</h1>
                                 <p class="lead text-white-50 mb-1 text-nowrap">HTMLスキルを更新してください</p>
+                                <p class="lead text-white-50 mb-1 text-nowrap">(備考は100文字まで入力可能)</p>
                             </div>
                         </div>
                     </div>
@@ -221,8 +222,9 @@
                     <button type='submit' class='btn btn-primary w-25 mt-3'>更新</button>
                 </div> 
             </form>
-        </div>            
+        </div>    
+        <div class="fixed-bottom">
+            <a  class="col-md-1 w-100" href="{{ url()->previous() }}"><button  type="button" class="btn btn-primary btn-lg" role="button">戻る</button></a>
+        </div>       
     </main>
-</body>
-</html>
 @endsection

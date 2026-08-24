@@ -59,17 +59,12 @@ class DisplayController extends Controller
         
     }
     //html登録スキル検索結果画面表示
-    public function htmllist(Request $request){
+    public function htmllist(Html $html){
         // 空を用意することで(検索結果0件で)値がなくてもエラーにならない
-        $html = new Html;
         $htmls = [];
-        // htmlテーブルに値がある場合
-        /*if(Auth::user()->html()->exists()) {
+        //テーブルに値がある場合       
+        if(Auth::user()->html()->exists()) {
             $htmls = Auth::user()->html()->where('del_flg', 0)->get()->toArray();
-        }*/
-        
-        if($html->exists()) {
-            $htmls = $html->where('del_flg', 0)->get()->toArray();
         }
 
         // ---------- 日付検索による支出一覧表示 ----------
@@ -83,35 +78,27 @@ class DisplayController extends Controller
         if (!empty($request['from']) && !empty($request['until'])) {
             $from = $request['from'];
             $until = $request['until'];
-            
-            //$htmls = Auth::user()->html()->wherebetween('date', [$from, $until])->where('del_flg', 0)->get()->toArray();
-            $htmls = $html->wherebetween('date', [$from, $until])->where('del_flg', 0)->get()->toArray();
+            $htmls = Auth::user()->html()->wherebetween('date', [$from, $until])->where('del_flg', 0)->get()->toArray();
             
             // from 選択された場合
         } elseif ($request['from']) {
-            $from = $request['from'];
-            //$htmls = Auth::user()->html()->where('date', '>=', $from )->where('del_flg', 0)->get()->toArray();
-            $htmls = $html->where('date', '>=', $from )->where('del_flg', 0)->get()->toArray();
+            $from = $request['from'];            
+            $htmls = Auth::user()->html()->where('date', '>=', $from )->where('del_flg', 0)->get()->toArray();
            
             
             // until 選択された場合
         } elseif ($request['until']) {
             $until = $request['until'];
-            //$htmls = Auth::user()->html()->where('date', '<=', $until )->where('del_flg', 0)->get()->toArray();
-            $htmls = $html->where('date', '<=', $until )->where('del_flg', 0)->get()->toArray();
+            $htmls = Auth::user()->html()->where('date', '<=', $until )->where('del_flg', 0)->get()->toArray();
            
-           
-
             // from until 両方選択されなかった場合
         } else {
-            //$htmls = Auth::user()->html()->where('del_flg', 0)->get()->toArray();
-            $htmls = $html->where('del_flg', 0)->get()->toArray();
+            $htmls = Auth::user()->html()->where('del_flg', 0)->get()->toArray();
         }
         return view('content/html/html_list', compact('htmls','until','from'));
     }    
     public function htmlskill(Html $html){
-        //$html = new Html;
-        //$result = $html->find($id);
+        
         $pointmax =30;
         $pointmin =10;
         $pointhigh = 3;
@@ -169,17 +156,13 @@ class DisplayController extends Controller
     }
     //編集
    public function htmledit(Html $html){
-        //$incomding = new Income;
-        //$result = $incomding->find($id);
         return view('content/html/html_edit', [
-            //'id' => $id,
+
             'result' => $html        
         ]);
     }    
     //更新
     public function htmlup(Html $html, Request $request){
-       //$instance = new Income;
-       //$record = $instance->find($id);
        $html->date = Carbon::today()->format('Y-m-d');
        $html->html_structure = $request->html_structure;
        $html->html_property = $request->html_property;
@@ -191,28 +174,19 @@ class DisplayController extends Controller
        $html->html_element = $request->html_element;
        $html->html_tool = $request->html_tool;
        $html->html_web = $request->html_web;
-       //$record->save();
-       //Auth::user()->html()->save($html);
-       html()->save($html);
+       Auth::user()->html()->save($html);
        return redirect('/');
     } 
     //物理削除
     public function htmldel(Html $html){
-       //$instance = new Income;
-       //$instance->where('id', $id)->delete();
        $html->delete();
        return redirect('/');
     }   
     
     //論理削除 
     public function htmldelflg(Html $html){
-       //$instance = new Income;
-       //$record = $instance->find($id);
-       //$record->del_flg =true;
-       $html->del_flg =true;
-       //$record->save();   
-       //Auth::user()->html()->save($html);
-       html()->save($html);
+       $html->del_flg =true;        
+       Auth::user()->html()->save($html);
        return redirect('/');
     }    
     
