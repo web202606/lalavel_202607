@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/forgot-password', ForgotPasswordController::class)->name('password.forgot');
+//Route::post('/forgot-password', ForgotPasswordController::class)->name('password.forgot');
