@@ -219,12 +219,12 @@
                         <textarea class='form-control' name='comment'>{{ old('comment') }}</textarea>
                     @endif
                 <div class='row justify-content-center'>
-                    <button type='submit' class='btn btn-primary w-25 mt-3'>更新</button>
+                    <button type='submit' class='btn btn-primary w-50 mt-3'>更新</button>
                 </div> 
             </form>
         </div>    
         <div class="fixed-bottom">
-            <a  class="col-md-1 w-100" href="{{ url()->previous() }}"><button  type="button" class="btn btn-primary btn-lg" role="button">戻る</button></a>
+            <a  class="col-md-1 w-100" href="{{ route('html_list') }}"><button  type="button" class="btn btn-primary btn-lg" role="button">戻る</button></a>
         </div>       
     </main>
 @endsection
