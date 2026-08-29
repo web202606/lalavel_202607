@@ -11,6 +11,7 @@
                             <div class="text-center my-5">
                                 <h1 class="display-5 fw-bolder text-white mb-3  text-nowrap">HTMLスキル登録履歴</h1>
                                 <p class="lead text-white-50 mb-1 text-nowrap">下記からスキル詳細を指定してください</p>
+                                <p class="lead text-white-50 mb-1 text-nowrap">同一日付はidが最大のidが最新です</p>
                             </div>
                         </div>
                     </div>

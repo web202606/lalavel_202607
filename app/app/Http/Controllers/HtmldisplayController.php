@@ -21,7 +21,7 @@ class HtmldisplayController extends Controller
 {
     //
     //検索画面表示
-        public function htmlsearch(){
+    public function htmlsearch(){
         return view('content/html/html_search');
         
     }

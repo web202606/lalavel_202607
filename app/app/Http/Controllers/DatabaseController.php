@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Database;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateData;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -33,27 +34,27 @@ class DatabaseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CreateData  $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateData $request)
     {
         //
-       $html = new Html;
-       $html->user_id       = Auth::id();
-       $html->date          = Carbon::today()->format('Y-m-d');
-       $html->html_structure = $request->html_structure;
-       $html->html_property = $request->html_property;
-       $html->html_posision = $request->html_posision;
-       $html->html_link     = $request->html_link;
-       $html->html_form     = $request->html_form;
-       $html->html_table    = $request->html_table;
-       $html->html_path     = $request->html_path;
-       $html->html_element  = $request->html_element;
-       $html->html_tool     = $request->html_tool;
-       $html->html_web      = $request->html_web;
-       $html->comment       = $request->comment;
-       Auth::user()->html()->save($html);
+       $database = new Database;
+       $database->user_id       = Auth::id();
+       $database->date          = Carbon::today()->format('Y-m-d');
+       $database->database_crud = $request->database_crud;
+       $database->database_rule = $request->database_rule;
+       $database->database_query = $request->database_query;
+       $database->database_join     = $request->database_join;
+       $database->database_groupby     = $request->database_groupby;
+       $database->database_transaction    = $request->database_transaction;
+       $database->database_Injection     = $request->database_Injection;
+       $database->database_placeholder  = $request->database_placeholder;
+       $database->database_connect     = $request->database_connect;
+       $database->database_sql      = $request->database_sql;
+       $database->comment       = $request->comment;
+       Auth::user()->database()->save($database);
        return view('parts/create_complete');
     }
 

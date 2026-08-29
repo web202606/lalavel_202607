@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Laravel;
+use App\Laraveltbl;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateData;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -33,27 +34,27 @@ class LaraveltblController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CreateData  $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateData $request)
     {
         //
-       $html = new Html;
-       $html->user_id       = Auth::id();
-       $html->date          = Carbon::today()->format('Y-m-d');
-       $html->html_structure = $request->html_structure;
-       $html->html_property = $request->html_property;
-       $html->html_posision = $request->html_posision;
-       $html->html_link     = $request->html_link;
-       $html->html_form     = $request->html_form;
-       $html->html_table    = $request->html_table;
-       $html->html_path     = $request->html_path;
-       $html->html_element  = $request->html_element;
-       $html->html_tool     = $request->html_tool;
-       $html->html_web      = $request->html_web;
-       $html->comment       = $request->comment;
-       Auth::user()->html()->save($html);
+       $laraveltbl = new Laraveltbl;
+       $laraveltbl->user_id       = Auth::id();
+       $laraveltbl->date          = Carbon::today()->format('Y-m-d');
+       $laraveltbl->laraveltbl_mvs = $request->laraveltbl_mvs;
+       $laraveltbl->laraveltbl_route = $request->laraveltbl_route;
+       $laraveltbl->laraveltbl_controller = $request->laraveltbl_controller;
+       $laraveltbl->laraveltbl_model     = $request->laraveltbl_model;
+       $laraveltbl->laraveltbl_view     = $request->laraveltbl_view;
+       $laraveltbl->laraveltbl_naming    = $request->laraveltbl_naming;
+       $laraveltbl->laraveltbl_eloquent     = $request->laraveltbl_eloquent;
+       $laraveltbl->laraveltbl_join  = $request->laraveltbl_join;
+       $laraveltbl->laraveltbl_templete     = $request->laraveltbl_templete;
+       $laraveltbl->laraveltbl_web      = $request->laraveltbl_web;
+       $laraveltbl->comment       = $request->comment;
+       Auth::user()->laraveltbl()->save($laraveltbl);
        return view('parts/create_complete');
     }
 
