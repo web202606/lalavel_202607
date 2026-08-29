@@ -156,12 +156,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/skill_delflg/{skill}', [SkilldisplayController::class, 'skilldelflg'])->name('skill_delflg');    
 
     //HtmlテーブルのCRUD(新規登録)
-    Route::resource('htmls', HtmlController::class);
     /*Route::resource('/html', 'HtmlController');*/
     Route::resource('htmls', 'HtmlController');
     //CssテーブルのCRUD(新規登録)
     //Route::resource('csss', CssController::class);
-    Route::resource('csss', 'CssController');
+    Route::resource('csses', 'CssController');
     //JavascriptテーブルのCRUD(新規登録)
     //Route::resource('javascripts', JavascriptController::class);
     Route::resource('javascripts', 'JavascriptController');

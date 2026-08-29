@@ -30,7 +30,7 @@
             @endif
         </div>
         <div class="card-body d-flex justify-content-center">
-            <form action="{{ route('csss.store') }}" method="post">
+            <form action="{{ route('csses.store') }}" method="post">
                 @csrf
                 <label for='css_property' class='mt-2'>セレクタ、プロパティ、値を理解しているか</label>
                 <select name='css_property' class='form-control'>

@@ -40,7 +40,9 @@ class JqueryController extends Controller
     public function store(CreateData $request)
     {
         //
+       //dd($request);
        $jquery = new Jquery;
+       
        $jquery->user_id       = Auth::id();
        $jquery->date          = Carbon::today()->format('Y-m-d');
        $jquery->jquery_plugin = $request->jquery_plugin;
@@ -54,6 +56,7 @@ class JqueryController extends Controller
        $jquery->jquery_animation     = $request->jquery_animation;
        $jquery->jquery_fade      = $request->jquery_fade;
        $jquery->comment       = $request->comment;
+       
        Auth::user()->jquery()->save($jquery);
        return view('parts/create_complete');
     }

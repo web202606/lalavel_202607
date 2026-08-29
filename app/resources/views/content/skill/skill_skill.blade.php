@@ -26,12 +26,12 @@
             <div class="col-md-4">
                 <div class="card">
                     @if($point == $max)
-                        <div class='text-center text-nowrap'>全項目完璧に理解できています</div>
+                        <div class='text-center text-nowrap'>全スキル完璧に理解できています</div>
                     @elseif($point == $min)
-                        <div class='text-center text-nowrap'>全項目理解不足です</div>
+                        <div class='text-center text-nowrap'>全スキル理解不足です</div>
                     @else
                         <div class="card-header bg-primary">
-                            <div class='text-center'>下記項目を学習しましょう</div>
+                            <div class='text-center'>下記スキルを学習しましょう</div>
                         </div>
                         <div class="card-body">
                             <div class="card-body">

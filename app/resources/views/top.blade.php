@@ -36,7 +36,7 @@
                         <h2 class="h4 fw-bolder">CSSスキル</h2>
                         <p class="mb-1"><a class="text-decoration-none" href="{{ route('css_search') }}">・CSSスキル表示<i class="bi bi-arrow-right"></i></a></p>
                         @can('user-higher')
-                        <p><a class="text-decoration-none" href="{{ route('csss.create') }}">・CSSスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
+                        <p><a class="text-decoration-none" href="{{ route('csses.create') }}">・CSSスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
                         @endcan
                     </div>
                     <div class="col-lg-3">
