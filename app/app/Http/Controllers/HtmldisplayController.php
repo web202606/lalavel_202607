@@ -15,6 +15,7 @@ use App\Database;
 use App\Laraveltbl;
 use App\Skill;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Gate;
 
 class HtmldisplayController extends Controller
 {
@@ -28,42 +29,80 @@ class HtmldisplayController extends Controller
     public function htmllist(Request $request){
         // 空を用意することで(検索結果0件で)値がなくてもエラーにならない
         $htmls = [];
+        $object =new Html;
         //テーブルに値がある場合
-        //dd($request);
-        if(Auth::user()->html()->exists()) {
-            $htmls = Auth::user()->html()->where('del_flg', 0)->get()->toArray();
-        }
+        if (Gate::allows('admin-only')) {
+            if($object->exists()) {
+                $htmls = $object->where('del_flg', 0)->get()->toArray();
+            }
 
-        // ---------- 日付検索による支出一覧表示 ----------
-        // 空で送信された時に、$fromと$untilは定義すらされていないのでエラーになってしまう。
-        // そのため事前に空の文字列を定義しておく(配列だとエラーになる)
-        $from = '';
-        $until = '';
-        
-        //日付が選択されたら
-        // from until 両方選択された場合
-        if (!empty($request['from']) && !empty($request['until'])) {
-            $from = $request['from'];
-            $until = $request['until'];
+            // ---------- 日付検索による支出一覧表示 ----------
+            // 空で送信された時に、$fromと$untilは定義すらされていないのでエラーになってしまう。
+            // そのため事前に空の文字列を定義しておく(配列だとエラーになる)
+            $from = '';
+            $until = '';
             
-            $htmls = Auth::user()->html()->wherebetween('date', [$from, $until])->where('del_flg', 0)->get()->toArray();
+            //日付が選択されたら
+            // from until 両方選択された場合
+            if (!empty($request['from']) && !empty($request['until'])) {
+                $from = $request['from'];
+                $until = $request['until'];
+                
+                $htmls = $object->wherebetween('date', [$from, $until])->where('del_flg', 0)->get()->toArray();
+                
+                // from 選択された場合
+            } elseif (!empty($request['from'])) {
+                $from = $request['from'];
+                
+                $htmls = $object->where('date', '>=', $from)->where('del_flg', 0)->get()->toArray();
+                        
+                // until 選択された場合
+            } elseif (!empty($request['until'])) {
+                $until = $request['until'];
+                
+                $htmls = $object->where('date', '<=', $until)->where('del_flg', 0)->get()->toArray();
             
-            // from 選択された場合
-        } elseif (!empty($request['from'])) {
-            $from = $request['from'];
+                // from until 両方選択されなかった場合
+            } else {
+                
+                $htmls = $object->where('del_flg', 0)->get()->toArray();
+            }
+        } else{
+            if(Auth::user()->html()->exists()) {
+                $htmls = Auth::user()->html()->where('del_flg', 0)->get()->toArray();
+            }
+
+            // ---------- 日付検索による支出一覧表示 ----------
+            // 空で送信された時に、$fromと$untilは定義すらされていないのでエラーになってしまう。
+            // そのため事前に空の文字列を定義しておく(配列だとエラーになる)
+            $from = '';
+            $until = '';
             
-            $htmls = Auth::user()->html()->where('date', '>=', $from)->where('del_flg', 0)->get()->toArray();
-                       
-            // until 選択された場合
-        } elseif (!empty($request['until'])) {
-            $until = $request['until'];
+            //日付が選択されたら
+            // from until 両方選択された場合
+            if (!empty($request['from']) && !empty($request['until'])) {
+                $from = $request['from'];
+                $until = $request['until'];
+                
+                $htmls = Auth::user()->html()->wherebetween('date', [$from, $until])->where('del_flg', 0)->get()->toArray();
+                
+                // from 選択された場合
+            } elseif (!empty($request['from'])) {
+                $from = $request['from'];
+                
+                $htmls = Auth::user()->html()->where('date', '>=', $from)->where('del_flg', 0)->get()->toArray();
+                        
+                // until 選択された場合
+            } elseif (!empty($request['until'])) {
+                $until = $request['until'];
+                
+                $htmls = Auth::user()->html()->where('date', '<=', $until)->where('del_flg', 0)->get()->toArray();
             
-            $htmls = Auth::user()->html()->where('date', '<=', $until)->where('del_flg', 0)->get()->toArray();
-           
-            // from until 両方選択されなかった場合
-        } else {
-            
-            $htmls = Auth::user()->html()->where('del_flg', 0)->get()->toArray();
+                // from until 両方選択されなかった場合
+            } else {
+                
+                $htmls = Auth::user()->html()->where('del_flg', 0)->get()->toArray();
+            }
         }
         return view('content/html/html_list', compact('htmls','until','from'));
     }    

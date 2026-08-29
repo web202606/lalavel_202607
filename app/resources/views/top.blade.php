@@ -27,48 +27,64 @@
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
                         <h2 class="h4 fw-bolder">HTMLスキル</h2>
                         <p class="mb-1"><a class="text-decoration-none" href="{{ route('html_search') }}">・HTMLスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        @can('user-higher')
                         <p><a class="text-decoration-none" href="{{ route('htmls.create') }}">・HTMLスキル新規登録<i class="bi bi-arrow-right"></i></a></p>                       
+                        @endcan
                     </div>
                     <div class="col-lg-3">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
                         <h2 class="h4 fw-bolder">CSSスキル</h2>
                         <p class="mb-1"><a class="text-decoration-none" href="#!">・CSSスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        @can('user-higher')
                         <p><a class="text-decoration-none" href="#!">・CSSスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
+                        @endcan
                     </div>
                     <div class="col-lg-3">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">Javascriptスキル</h2>
                         <p class="mb-1"><a class="text-decoration-none" href="#!">・Javascriptスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        @can('user-higher')
                         <p><a class="text-decoration-none" href="#!">・Javascriptスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
+                        @endcan
                     </div>
                    <div class="col-lg-3">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">JQueryスキル</h2>
                         <p class="mb-1"><a class="text-decoration-none" href="#!">・JQueryスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        @can('user-higher')
                         <p><a class="text-decoration-none" href="#!">・JQueryスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
+                        @endcan
                     </div>
                    <div class="col-lg-3">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">PHPスキル</h2>
                         <p class="mb-1"><a class="text-decoration-none" href="#!">・PHPスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        @can('user-higher')
                         <p><a class="text-decoration-none" href="#!">・PHPスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
+                        @endcan
                     </div>
                    <div class="col-lg-3">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">DBスキル</h2>
                         <p class="mb-1"><a class="text-decoration-none" href="#!">・DBスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        @can('user-higher')
                         <p><a class="text-decoration-none" href="#!">・DBスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
+                        @endcan
                     </div>
                    <div class="col-lg-3">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">Laravelスキル</h2>
                         <p class="mb-1"><a class="text-decoration-none" href="#!">・Laravelスキル表示<i class="bi bi-arrow-right"></i></a></p>
+                        @can('user-higher')
                         <p><a class="text-decoration-none" href="#!">・Laravelスキル新規登録<i class="bi bi-arrow-right"></i></a></p> 
+                        @endcan
                     </div>
                    <div class="col-lg-3">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">総合スキル</h2>
+                        @can('user-higher')
                         <p class="mb-1"><a class="text-decoration-none" href="#!">・総合スキルシート作成<i class="bi bi-arrow-right"></i></a></p>
+                        @endcan
                         <p><a class="text-decoration-none" href="#!">・総合スキルシート作成履歴表示<i class="bi bi-arrow-right"></i></a></p> 
                     </div>
                 </div>

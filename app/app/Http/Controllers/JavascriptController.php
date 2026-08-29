@@ -36,13 +36,12 @@ class JavascriptController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateData $request)
     {
         //
        $html = new Html;
-       /**user_idは仮で入れている。　**/
-       $html->user_id       = 1;
-       $html->date = Carbon::today()->format('Y-m-d');
+       $html->user_id       = Auth::id();
+       $html->date          = Carbon::today()->format('Y-m-d');
        $html->html_structure = $request->html_structure;
        $html->html_property = $request->html_property;
        $html->html_posision = $request->html_posision;
@@ -54,9 +53,8 @@ class JavascriptController extends Controller
        $html->html_tool     = $request->html_tool;
        $html->html_web      = $request->html_web;
        $html->comment       = $request->comment;
-       $html->save();
-       //Auth::user()->html()->save($html);
-       return redirect('/');
+       Auth::user()->html()->save($html);
+       return view('parts/create_complete');
     }
 
     /**

@@ -25,9 +25,15 @@
                                 <th scope='col text-nowrap'>ID</th>
                                 <th scope='col text-nowrap'>日付</th>
                                 <th scope='col text-nowrap'>スキル詳細</th>
-                                <th scope='col text-nowrap'>更新</th>   
-                                <th scope='col text-nowrap'>物理削除</th>   
-                                <th scope='col text-nowrap'>論理削除</th>                        
+                                @can('user-higher')
+                                <th scope='col text-nowrap'>更新</th>
+                                @endcan
+                                @can('admin-only')   
+                                <th scope='col text-nowrap'>物理削除</th>  
+                                @endcan 
+                                @can('admin-only')
+                                <th scope='col text-nowrap'>論理削除</th>  
+                                @endcan                      
                             </tr>
                         </thead>
                         <tbody>
@@ -39,15 +45,21 @@
                                     <th scope='col'>
                                         <a href="{{ route('html_skill', ['html' => $html['id']]) }}">スキル</a>
                                     </th>  
+                                    @can('user-higher')
                                     <th scope='col'>
                                         <a href="{{ route('html_edit', ['html' => $html['id']]) }}">更新</a>
                                     </th>
+                                    @endcan
+                                    @can('admin-only')
                                     <th scope='col'>
                                         <a href="{{ route('html_del', ['html' => $html['id']]) }}">物理削除</a>
                                     </th> 
+                                    @endcan
+                                    @can('admin-only')
                                     <th scope='col'>
                                         <a href="{{ route('html_delflg', ['html' => $html['id']]) }}">論理削除</a>
-                                    </th>                                                  
+                                    </th>   
+                                    @endcan                                               
                                 </tr>
                             @endforeach
                         </tbody>
@@ -56,7 +68,7 @@
             </div>
         </div>
         <div class="fixed-bottom">
-            <a  class="col-md-1 w-100" href="{{ url()->previous() }}"><button  type="button" class="btn btn-primary btn-lg" role="button">戻る</button></a>
+            <a  class="col-md-1 w-100" href="{{ route('html_search') }}"><button  type="button" class="btn btn-primary btn-lg" role="button">戻る</button></a>
         </div>
     </main>
 @endsection

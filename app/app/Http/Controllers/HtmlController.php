@@ -68,7 +68,6 @@ class HtmlController extends Controller
     public function show($id)
     {
         //
-        return view('html/html_create');
     }
 
     /**
