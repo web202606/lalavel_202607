@@ -19,9 +19,10 @@
         </div>
               
         <div class="row justify-content-around mt-5">
-            <a  class="col-md-4 w-100"  href="{{ route('retop') }}"><button  type="button" class="btn btn-primary btn-lg w-100" role="button">TOPへ戻る</button></a>
+            <a  class="col-md-4 w-100" href="{{ route('top') }}"><button  type="button" class="btn btn-primary btn-lg w-100" role="button">TOPへ戻る</button></a>
         </div> 
+        <div class="fixed-bottom">
+            <a  class="col-md-1 w-100" href="{{ url()->previous() }}"><button  type="button" class="btn btn-primary btn-lg" role="button">戻る</button></a>
+        </div>        
     </main>
-</body>
-</html>
 @endsection

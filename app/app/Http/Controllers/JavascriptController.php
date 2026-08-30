@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Javascript;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateData;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -33,30 +34,28 @@ class JavascriptController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     *@param  \App\Http\Requests\CreateData  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateData $request)
     {
         //
-       $html = new Html;
-       /**user_idは仮で入れている。　**/
-       $html->user_id       = 1;
-       $html->date = Carbon::today()->format('Y-m-d');
-       $html->html_structure = $request->html_structure;
-       $html->html_property = $request->html_property;
-       $html->html_posision = $request->html_posision;
-       $html->html_link     = $request->html_link;
-       $html->html_form     = $request->html_form;
-       $html->html_table    = $request->html_table;
-       $html->html_path     = $request->html_path;
-       $html->html_element  = $request->html_element;
-       $html->html_tool     = $request->html_tool;
-       $html->html_web      = $request->html_web;
-       $html->comment       = $request->comment;
-       $html->save();
-       //Auth::user()->html()->save($html);
-       return redirect('/');
+       $javascript = new Javascript;
+       $javascript->user_id       = Auth::id();
+       $javascript->date          = Carbon::today()->format('Y-m-d');
+       $javascript->javascript_read = $request->javascript_read;
+       $javascript->javascript_file = $request->javascript_file;
+       $javascript->javascript_grammar = $request->javascript_grammar;
+       $javascript->javascript_variable     = $request->javascript_variable;
+       $javascript->javascript_data     = $request->javascript_data;
+       $javascript->javascript_comparison    = $request->javascript_comparison;
+       $javascript->javascript_logical     = $request->javascript_logical;
+       $javascript->javascript_dom  = $request->javascript_dom;
+       $javascript->javascript_structure     = $request->javascript_structure;
+       $javascript->javascript_method      = $request->javascript_method;
+       $javascript->comment       = $request->comment;
+       Auth::user()->javascript()->save($javascript);
+       return view('parts/create_complete');
     }
 
     /**

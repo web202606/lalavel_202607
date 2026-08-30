@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Css extends Model
 {
     //
+    protected $table = 'csses';
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jquery;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateData;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -33,30 +34,31 @@ class JqueryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CreateData  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateData $request)
     {
         //
-       $html = new Html;
-       /**user_idは仮で入れている。　**/
-       $html->user_id       = 1;
-       $html->date = Carbon::today()->format('Y-m-d');
-       $html->html_structure = $request->html_structure;
-       $html->html_property = $request->html_property;
-       $html->html_posision = $request->html_posision;
-       $html->html_link     = $request->html_link;
-       $html->html_form     = $request->html_form;
-       $html->html_table    = $request->html_table;
-       $html->html_path     = $request->html_path;
-       $html->html_element  = $request->html_element;
-       $html->html_tool     = $request->html_tool;
-       $html->html_web      = $request->html_web;
-       $html->comment       = $request->comment;
-       $html->save();
-       //Auth::user()->html()->save($html);
-       return redirect('/');
+       //dd($request);
+       $jquery = new Jquery;
+       
+       $jquery->user_id       = Auth::id();
+       $jquery->date          = Carbon::today()->format('Y-m-d');
+       $jquery->jquery_plugin = $request->jquery_plugin;
+       $jquery->jquery_read = $request->jquery_read;
+       $jquery->jquery_structure = $request->jquery_structure;
+       $jquery->jquery_method     = $request->jquery_method;
+       $jquery->jquery_event     = $request->jquery_event;
+       $jquery->jquery_ajax    = $request->jquery_ajax;
+       $jquery->jquery_alert     = $request->jquery_alert;
+       $jquery->jquery_counter  = $request->jquery_counter;
+       $jquery->jquery_animation     = $request->jquery_animation;
+       $jquery->jquery_fade      = $request->jquery_fade;
+       $jquery->comment       = $request->comment;
+       
+       Auth::user()->jquery()->save($jquery);
+       return view('parts/create_complete');
     }
 
     /**

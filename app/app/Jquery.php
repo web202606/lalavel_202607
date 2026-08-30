@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Jquery extends Model
 {
     //
+    protected $table = 'jqueries';
 }

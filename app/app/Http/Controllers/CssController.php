@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Css;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateData;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -34,30 +35,28 @@ class CssController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CreateData  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateData $request)
     {
         //
-       $html = new Css;
-       /**user_idは仮で入れている。　**/
-       $html->user_id       = 1;
-       $html->date = Carbon::today()->format('Y-m-d');
-       $html->html_structure = $request->html_structure;
-       $html->html_property = $request->html_property;
-       $html->html_posision = $request->html_posision;
-       $html->html_link     = $request->html_link;
-       $html->html_form     = $request->html_form;
-       $html->html_table    = $request->html_table;
-       $html->html_path     = $request->html_path;
-       $html->html_element  = $request->html_element;
-       $html->html_tool     = $request->html_tool;
-       $html->html_web      = $request->html_web;
-       $html->comment       = $request->comment;
-       $html->save();
-       //Auth::user()->html()->save($html);
-       return redirect('/');
+       $css = new Css;
+       $css->user_id       = Auth::id();
+       $css->date          = Carbon::today()->format('Y-m-d');
+       $css->css_property = $request->css_property;
+       $css->css_element = $request->css_element;
+       $css->css_box = $request->css_box;
+       $css->css_Flexbox     = $request->css_Flexbox;
+       $css->css_responsive     = $request->css_responsive;
+       $css->css_position    = $request->css_position;
+       $css->css_glid     = $request->css_glid;
+       $css->css_background  = $request->css_background;
+       $css->css_display     = $request->css_display;
+       $css->css_coding      = $request->css_coding;
+       $css->comment       = $request->comment;
+       Auth::user()->css()->save($css);
+       return view('parts/create_complete');
     }
 
     /**
